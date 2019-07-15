@@ -1,0 +1,22 @@
+<view>
+    <view class="page__hd">
+
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">多选项</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="多选项" bindinput="countInput" value='{{ count }}'/>
+                </view>
+            </view>
+        </view>
+        <view class='member' wx:for = "{{ members}}" wx:for-item = "member" wx:key="*this" data-id="{{ member.id }}" bindtap='click'>
+              <view>
+                <text>{{ member.name  }}</text>
+              <wxs module="tools" src="../../utils/arrayFilter.wxs"></wxs>
+              <image wx-if="{{tools.isInArray(member.id,selecteds) == true}}" class='selected' src="../../imgs/selected.png" mode="cover"></image>
+            </view>
+        </view>
+    </view>
+</view>
